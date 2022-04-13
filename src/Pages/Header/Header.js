@@ -1,17 +1,18 @@
 import React from 'react';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import logo from "../../Image/logo.png"
 
 const Header = () => {
     return (
-        <Navbar sticky='top' style={{ minHeight: '80px' }} collapseOnSelect expand="lg" bg="primary" variant="dark" pb-4 >
+        <Navbar sticky='top' style={{ minHeight: '80px' }} collapseOnSelect expand="lg" bg="primary" variant="dark"  >
             <Container>
-                <Navbar.Brand href="#home"> <img style={{ height: "53px" }} src={logo} alt="" srcset="" /> </Navbar.Brand>
+                <Navbar.Brand as={Link} to="/"> <img style={{ height: "40px" }} src={logo} alt="" /> </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#service">Services</Nav.Link>
+                        <Nav.Link href="/#home">Home</Nav.Link>
+                        <Nav.Link href="/#service">Services</Nav.Link>
                         <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -21,8 +22,8 @@ const Header = () => {
                         </NavDropdown>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#deets">About</Nav.Link>
-                        <Nav.Link eventKey={2} href="#memes">
+                        <Nav.Link as={Link} to="/about">About</Nav.Link>
+                        <Nav.Link as={Link} to="/login">
                             Log In
                         </Nav.Link>
                     </Nav>
